@@ -11,6 +11,17 @@ class ProductView(APIView):
     def get(self, request):
 
         query = Product.objects.all()
+        data = []
         serializers = ProductSerializer(query, many=True)
+        for product in serializers.data:
+            fab_query = Favorite.objects.filter(user=request.user).filter(
+                product_id = product['id']
+            )
+            if fab_query:
+                product['favorite'] = fab_query[0].isFavorite
+            else:
+                product['favorite'] = False
+            data.append(product)        
 
-        return Response(serializers.data) 
+        return Response(data) 
+ 
