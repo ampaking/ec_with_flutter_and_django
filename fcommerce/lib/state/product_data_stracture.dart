@@ -8,7 +8,7 @@ class ProductDataStacture with ChangeNotifier {
   List<Product> _products = [];
 
   Future<bool> getProducts() async {
-    String url = 'http://127.0.0.1:8000/api/products/';
+    String url = 'http://192.168.11.7:8000/api/products/';
 
     try {
       http.Response response = await http.get(Uri.parse(url), headers: {

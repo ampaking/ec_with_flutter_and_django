@@ -14,7 +14,7 @@ class SingleProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: Image.network(
-        "http://127.0.0.1:8000$image",
+        "http://192.168.11.7:8000$image",
         fit: BoxFit.cover,
       ),
       footer: GridTileBar(
@@ -24,9 +24,12 @@ class SingleProduct extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(
-            Icons.favorite,
-          ),
+          icon: isFavorite!
+              ? Icon(
+                  Icons.favorite,
+                )
+              : Icon(Icons.favorite_border),
+          color: Colors.redAccent,
         ),
       ),
     );

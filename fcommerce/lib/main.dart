@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         home: HomeScreen(),
         routes: {
           HomeScreen.pageRpute: (ctx) => HomeScreen(),
+          
         },
       ),
     );
