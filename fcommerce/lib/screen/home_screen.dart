@@ -1,3 +1,4 @@
+import 'package:fcommerce/const/const.dart';
 import 'package:fcommerce/state/product_data_stracture.dart';
 import 'package:fcommerce/widgets/widget.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
     final products = Provider.of<ProductDataStacture>(context).productsList;
     if (!_isLoading)
       return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          actions: [
+            Icon(
+              Icons.shopping_bag,
+              color: Colors.green,
+            )
+          ],
+        ),
         body: Center(
           child: Container(
             child: Text("$_isLoading value is Flase, so something is missing"),
